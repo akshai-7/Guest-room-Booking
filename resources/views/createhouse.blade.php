@@ -1,8 +1,11 @@
 @extends('layouts.user')
 @section('content')
     <div>
-        <h3>House Details</h3>
-        <a style="margin-right:20px;" href="/house"><input type="submit" value="Add-House"></a>
+        <div style="display:flex">
+            <h3 class="mt-4">House Details</h3>
+            <a style="margin-left:1000px;" href="/house"><input type="submit" value="Add-House"
+                    class="btn btn-secondary btn-sm mt-4"></a>
+        </div>
         <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width:1300px;">
             <thead>
                 <th style="text-align:center;">S.No</th>
@@ -115,8 +118,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="subreport">
                         <div class="form-group row mt-4 ">
                             <label for="" class="col-sm-3 col-form-label"> Mobile</label>
                             <div class="col-sm-8">
@@ -127,6 +128,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="subreport">
+
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-3  col-form-label">House Name</label>
                             <div class="col-sm-8">
@@ -175,12 +179,12 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value="Submit" class="btn text-white mt-4"
-                            style="float:right;background:#bf0e3a;">
-                        <a href="/createhouse">
-                            <input type="button" value="Back" class="btn btn-secondary text-white mt-4"
-                                style="float:right;">
-                        </a>
+
+                        <div style="float: right" class="mt-4">
+                            <a href="/createhouse"><button type="button" class="btn btn-secondary btn-sm"
+                                    id="add">Back</button></a>
+                            <button type="submit" class="btn btn-primary btn-sm" id="add">Submit</button>
+                        </div>
                     </div>
                 </div>
             </form>

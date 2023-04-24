@@ -77,7 +77,7 @@
                                 <option value="">Select</option>
                                 <option value="Vila">Vila</option>
                                 <option value="Flat">Flat</option>
-                                <option value="Car">Car</option>
+                                <option value=""></option>
                             </select>
                         </div>
                     </div>
@@ -101,11 +101,11 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Submit" class="btn text-white mt-4"
-                        style="float:right;background:#bf0e3a;">
-                    <a href="/createhouse">
-                        <input type="button" value="Back" class="btn btn-secondary text-white mt-4" style="float:right;">
-                    </a>
+                    <div style="float: right" class="mt-4">
+                        <a href="/createhouse"><button type="button" class="btn btn-secondary btn-sm"
+                                id="add">Back</button></a>
+                        <button type="submit" class="btn btn-primary btn-sm" id="add">Submit</button>
+                    </div>
                 </div>
             </div>
         </form>

@@ -46,9 +46,7 @@ nav {
     text-decoration: none;
     font-size: 14px;
 }
-.container {
-    padding: 0 7%;
-}
+
 .header h1 {
     font-size: 4vw;
     font-weight: 500;
@@ -57,11 +55,12 @@ nav {
     padding-top: 22%;
 }
 .search-bar {
-    background: #fff;
-    width: 70%;
+    background: #d6b9b9;
+    width: 60%;
     margin: 30px auto;
     padding: 6px 10px 6px 30px;
     border-radius: 50px;
+    border: 1px solid black;
 }
 .search-bar form {
     display: flex;
@@ -72,15 +71,13 @@ nav {
     display: block;
     border: 0;
     outline: none;
-    background: trasnparent;
+    background: #d6b9b9;
 }
-.search-bar form button {
-    background: #ff5361;
-    width: 55px;
-    height: 55px;
+#btn {
+    background: white;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 0;
-    outline: none;
     cursor: pointer;
 }
 .search-bar form button img {
@@ -374,7 +371,7 @@ nav.navbar-white .fa-bars {
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .left-col {
     flex-basis: 70%;
@@ -411,10 +408,8 @@ nav.navbar-white .fa-bars {
     font-size: 22px;
     margin: 4px 0;
 }
-.house-info i {
-    color: #ff5361;
-    font-size: 18px;
-    margin: 10px 1px;
+.house-info h5 {
+    color: black;
 }
 .house-price {
     text-align: right;
@@ -670,14 +665,7 @@ nav.navbar-white .fa-bars {
     margin-left: 100px;
     margin-top: 6%;
 }
-.adminform1 {
-    height: 80%;
-    width: 80%;
-    background: white;
-    border-radius: 10px;
-    padding: 4%;
-    overflow: scroll;
-}
+
 .report1 {
     display: flex;
 }
@@ -689,6 +677,14 @@ nav.navbar-white .fa-bars {
 .subreport {
     margin-left: 20px;
     width: 50%;
+}
+.adminform1 {
+    height: 80%;
+    width: 80%;
+    background: white;
+    border-radius: 7px;
+    padding: 4%;
+    overflow: scroll;
 }
 #popup {
     cursor: pointer;
@@ -702,4 +698,13 @@ nav.navbar-white .fa-bars {
     align-content: center;
     top: 0;
     left: 0;
+}
+#add {
+    border-radius: 3px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    height: 30px;
+    position: relative;
+    width: 90px;
 }

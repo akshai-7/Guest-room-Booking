@@ -10,6 +10,7 @@ class AdminController extends Controller
 {
     public function createhouse(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'address' => 'required',
@@ -28,7 +29,7 @@ class AdminController extends Controller
         $admin->mobile = $request['mobile'];
         $admin->housename = $request['housename'];
         $admin->housetype = $request['housetype'];
-        $admin->facilities = $request[' facilities'];
+        $admin->facilities = $request['facilities'];
         $data = $request->all();
         $img = array();
         for ($i = 0; $i < count($data['image']); $i++) {

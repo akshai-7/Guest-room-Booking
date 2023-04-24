@@ -52,7 +52,7 @@ class LoginController extends Controller
             return redirect('/');
         }
         if ($user->role == 'admin') {
-            return redirect('/home');
+            return redirect('/createhouse');
         }
         if ($user->role == 'user') {
             return redirect('/listing');

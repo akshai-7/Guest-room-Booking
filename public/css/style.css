@@ -667,19 +667,39 @@ nav.navbar-white .fa-bars {
 }
 .adminform {
     height: 500px;
-    width: 900px;
-    margin-left: 300px;
+    margin-left: 100px;
     margin-top: 6%;
+}
+.adminform1 {
+    height: 80%;
+    width: 80%;
+    background: white;
+    border-radius: 10px;
+    padding: 4%;
+    overflow: scroll;
 }
 .report1 {
     display: flex;
 }
 
 .report {
-    width: 40%;
+    width: 50%;
 }
 
 .subreport {
     margin-left: 20px;
     width: 50%;
+}
+#popup {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: rgba(107, 107, 107, 0.5);
+    position: absolute;
+    align-items: center;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    top: 0;
+    left: 0;
 }

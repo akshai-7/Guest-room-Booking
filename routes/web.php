@@ -25,6 +25,7 @@ Route::view('/', 'login');
 Route::view('/register', 'register');
 Route::view('/house', 'house');
 Route::view('/listing', 'listing');
+Route::view('/booking', 'booking');
 
 
 Route::post('/create', [RegisterController::class, 'create']);
@@ -37,3 +38,4 @@ Route::post('/updatedetails/{id}', [AdminController::class, 'updatedetails']);
 Route::get('/delete/{id}', [AdminController::class, 'delete']);
 //customer
 Route::get('listing', [UserController::class, 'houselist']);
+Route::post('booking', [UserController::class, 'booking']);

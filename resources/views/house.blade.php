@@ -101,6 +101,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group row mt-4 ">
+                        <label for="" class="col-sm-2 col-form-label">No of Guest</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="guest" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' guest')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label for="" class="col-sm-2 col-form-label">Price</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="price" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' price')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
                     <div style="float: right" class="mt-4">
                         <a href="/createhouse"><button type="button" class="btn btn-secondary btn-sm"
                                 id="add">Back</button></a>

@@ -16,6 +16,8 @@
                 <th style="text-align:center;">House Name</th>
                 <th style="text-align:center;">House Type</th>
                 <th style="text-align:center;" class="col-md-2">Facilities</th>
+                <th style="text-align:center;">No of Guests</th>
+                <th style="text-align:center;">Price</th>
                 <th style="text-align:center;">House Image</th>
                 <th style="text-align:center;">Action</th>
             </thead>
@@ -36,6 +38,10 @@
                             {{ $house->housetype }}</td>
                         <td style="text-align:center;" class="table_data">
                             {{ $house->facilities }}</td>
+                        <td style="text-align:center;" class="table_data">
+                            {{ $house->guest }}</td>
+                        <td style="text-align:center;" class="table_data">
+                            {{ $house->price }}</td>
                         <td style="text-align:center;" class="table_data">
                             @if ($house->image != null)
                                 <a href="#">
@@ -62,7 +68,7 @@
             <form action="/updatedetails/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <h4 class="" style="color:#3109c4;"><i class="fa-solid fa-house"></i> House Detailes</h4>
+                    <h4 class="" style="color:#ff5361"><i class="fa-solid fa-house"></i> House Detailes</h4>
                 </div>
                 <div class="report1">
                     <div class="report">
@@ -157,6 +163,26 @@
                             <div class="col-sm-8">
                                 <input type="text" name="facilities" class="form-control" id="facilities">
                                 <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' facilities')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-3 col-form-label">No of Guest</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="guest" class="form-control" id="guest">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' guest')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4 ">
+                            <label for="" class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="price" class="form-control" id="price">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' price')
                                         *{{ $message }}
                                     @enderror
                                 </div>

@@ -10,7 +10,6 @@ class AdminController extends Controller
 {
     public function createhouse(Request $request)
     {
-
         $request->validate([
             'name' => 'required',
             'address' => 'required',
@@ -20,6 +19,8 @@ class AdminController extends Controller
             'housename' => 'required',
             'housetype' => 'required',
             'facilities' => 'required',
+            'guest' => 'required',
+            'price' => 'required',
         ]);
         $admin = new Housedetails();
         $admin->name = $request['name'];
@@ -30,6 +31,8 @@ class AdminController extends Controller
         $admin->housename = $request['housename'];
         $admin->housetype = $request['housetype'];
         $admin->facilities = $request['facilities'];
+        $admin->guest = $request['guest'];
+        $admin->price = $request['price'];
         $data = $request->all();
         $img = array();
         for ($i = 0; $i < count($data['image']); $i++) {
@@ -62,6 +65,8 @@ class AdminController extends Controller
             'housename' => 'required',
             'housetype' => 'required',
             'facilities' => 'required',
+            'guest' => 'required',
+            'price' => 'required',
         ]);
         $id = $request->id;
         $data = Housedetails::find($id);
@@ -77,6 +82,8 @@ class AdminController extends Controller
         $admin->housename = $request['housename'];
         $admin->housetype = $request['housetype'];
         $admin->facilities = $request['facilities'];
+        $admin->guest = $request['guest'];
+        $admin->price = $request['price'];
         $data = $request->all();
         $img = array();
         for ($i = 0; $i < count($data['image']); $i++) {

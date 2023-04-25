@@ -9,5 +9,13 @@ function check(val) {
     document.getElementById('housename').value = val['housename']
     document.getElementById('housetype').value = val['housetype']
     document.getElementById('facilities').value = val['facilities']
+    document.getElementById('guest').value = val['guest']
+    document.getElementById('price').value = val['price']
     document.getElementById('image').src = "http://127.0.0.1:8001/images/"+val['image']
 }
+function sam(val) {
+    document.getElementById('popup').style.display = "flex"
+    document.getElementById('id').value = val['id']
+}
+
+

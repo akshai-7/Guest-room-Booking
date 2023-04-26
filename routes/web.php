@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\UserController;
 
@@ -18,14 +17,11 @@ use App\Http\Controllers\Auth\UserController;
 |
 */
 
-
-
 Auth::routes();
 Route::view('/', 'login');
 Route::view('/register', 'register');
 Route::view('/house', 'house');
 Route::view('/listing', 'listing');
-
 Route::post('/create', [RegisterController::class, 'create']);
 //house owner
 Route::post('createhouse', [AdminController::class, 'createhouse']);
@@ -33,6 +29,6 @@ Route::get('createhouse', [AdminController::class, 'housedetails']);
 Route::post('/updatedetails/{id}', [AdminController::class, 'updatedetails']);
 Route::get('/delete/{id}', [AdminController::class, 'delete']);
 //customer
-Route::get('listing', [UserController::class, 'houselist']);
+Route::get('/listing', [UserController::class, 'houselist']);
 Route::post('booking', [UserController::class, 'booking']);
 Route::get('/bookinglist', [UserController::class, 'bookinglist']);

@@ -26,16 +26,9 @@
         <a href="#">
             <img src="images/logo-red.png" class="logo">
         </a>
-        <a href="/" class="register-btn">LogOut</a>
+        <a href="/" class="register-btn">Log Out</a>
     </nav>
     @yield('content')
-    <script>
-        var navBar = document.getElementById("navBar");
-
-        function togglebtn() {
-            navBar.classList.toggle("hidemenu")
-        }
-    </script>
 </body>
 
 </html>

@@ -16,6 +16,7 @@ function check(val) {
 function sam(val) {
     document.getElementById('popup').style.display = "flex"
     document.getElementById('id').value = val['id']
+    document.getElementById('user_id').value = val['user_id']
 }
 
 

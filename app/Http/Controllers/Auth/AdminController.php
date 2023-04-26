@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Housedetails;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -22,7 +24,9 @@ class AdminController extends Controller
             'guest' => 'required',
             'price' => 'required',
         ]);
+        $user = User::where('name', $request->name)->first();
         $admin = new Housedetails();
+        $admin->user_id = $user->id;
         $admin->name = $request['name'];
         $admin->address = $request['address'];
         $admin->city = $request['city'];
@@ -55,7 +59,6 @@ class AdminController extends Controller
 
     public function updatedetails(Request $request, $id)
     {
-        // dd($request);
         $request->validate([
             'name' => 'required',
             'address' => 'required',
@@ -100,7 +103,7 @@ class AdminController extends Controller
     }
     public function delete($id)
     {
-        Housedetails::find($id)->delete();
+        Housedetails::find(Auth::id())->delete();
         return redirect('/createhouse');
     }
 }

@@ -1,6 +1,11 @@
 @extends('layouts.user')
 @section('content')
     <div>
+        @if (auth()->check())
+            <p> logic if user is authenticated</p>
+        @else
+            <p> logic otherwise</p>
+        @endif
         <div style="display:flex">
             <h3 class="mt-4">House Details</h3>
             <a style="margin-left:1000px;" href="/house"><input type="submit" value="Add-House"
@@ -8,7 +13,8 @@
         </div>
         <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width:1300px;">
             <thead>
-                <th style="text-align:center;">S.No</th>
+                <th style="text-align:center;">
+                    S.No</th>
                 <th style="text-align:center;">House Owner Name</th>
                 <th style="text-align:center;">Address</th>
                 <th style="text-align:center;">Date</th>
@@ -19,13 +25,15 @@
                 <th style="text-align:center;">No of Guests</th>
                 <th style="text-align:center;">Price</th>
                 <th style="text-align:center;">House Image</th>
-                <th style="text-align:center;">Action</th>
+                <th style="text-align:center;" class="col-md-1">Action</th>
             </thead>
             <tbody>
                 @foreach ($houses as $house)
                     <tr class="table_row">
                         <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
                         <td style="text-align:center;" class="table_data">{{ $house->name }}
+                        </td>
+                        <td style="text-align:center;" class="table_data">{{ $house->user_id }}
                         </td>
                         <td style="text-align:center;" class="table_data col-md-2">{{ $house->address }},
                             {{ $house->city }}

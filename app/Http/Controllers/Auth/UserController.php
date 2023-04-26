@@ -6,11 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Housedetails;
 use App\Models\Book;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
+
 {
+
     public function houselist(Request $request)
     {
+
         if ($request->location == null && $request->check_in == null) {
             $status = 'Null';
             $users = Housedetails::where('status', $status)->get();
@@ -22,6 +28,7 @@ class UserController extends Controller
     }
     public function booking(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -32,7 +39,9 @@ class UserController extends Controller
             'check_out' => 'required',
         ]);
         $users = new Book();
-        $users->booking_id = $request['id'];
+        $user_id = User::where('name', $request->name)->first();
+        $users->user_id = $user_id->id;
+        $users->house_id = $request['id'];
         $users->name = $request['name'];
         $users->email = $request['email'];
         $users->phone = $request['phone'];

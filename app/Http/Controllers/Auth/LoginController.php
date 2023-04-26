@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -43,15 +44,15 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $user = User::where(['email' => $request->email])->first();
-        if (!$user || !Hash::check($request->password, $user->password)) {
+        if (!$user && !Hash::check($request->password, $user->password)) {
             return redirect('/');
         }
         if ($user->role == 'admin') {
             return redirect('/createhouse');
         }
-        if ($user->role == 'user') {
-            return redirect('/listing');
-        }
+        // if ($user->role == 'user') {
+        //     return redirect('/listing');
+        // }
         return redirect('/');
     }
 }

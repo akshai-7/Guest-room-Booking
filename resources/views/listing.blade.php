@@ -34,6 +34,7 @@
             </div>
             <div class="left-col mt-4">
                 <h2>Recommended Places</h2>
+                <p></p>
                 @foreach ($users as $user)
                     <div class="house">
                         <div class="house-img">

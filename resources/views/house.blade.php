@@ -11,7 +11,7 @@
                     <div class="form-group row mt-4 ">
                         <label for="" class="col-sm-2  col-form-label">Owner Name</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control" required>
+                            <input type="text" name="name" class="form-control">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                     *{{ $message }}
                                 @enderror
@@ -32,7 +32,7 @@
                         <label for="" class="col-sm-2  col-form-label">City</label>
                         <div class="col-sm-9">
                             <input type="text" name="city" class="form-control" placeholder="--select city--">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('gender')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('city')
                                     *{{ $message }}
                                 @enderror
                             </div>
@@ -42,14 +42,14 @@
                         <label for="" class="col-sm-2  col-form-label"> Date</label>
                         <div class="col-sm-9">
                             <input type="date" name="date" class="form-control">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date_of_birth')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('date')
                                     *{{ $message }}
                                 @enderror
                             </div>
                         </div>
                     </div>
                     <div class="form-group row mt-4 ">
-                        <label for="" class="col-sm-2 col-form-label"> Mobile</label>
+                        <label for="" class="col-sm-2 col-form-label">Mobile</label>
                         <div class="col-sm-9">
                             <input type="text" name="mobile" class="form-control">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('mobile')
@@ -63,8 +63,8 @@
                     <div class="form-group row mt-4">
                         <label for="" class="col-sm-2  col-form-label">House Name</label>
                         <div class="col-sm-9">
-                            <input type="text" name="housename" class="form-control" required>
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                            <input type="text" name="housename" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('housename')
                                     *{{ $message }}
                                 @enderror
                             </div>
@@ -73,19 +73,13 @@
                     <div class="form-group row mt-4">
                         <label for="" class="col-sm-2  col-form-label">House Type</label>
                         <div class="col-sm-9">
-                            <select name="housetype" class="form-select" name="type">
+                            <select name="housetype" class="form-control" name="type">
                                 <option value="">Select</option>
                                 <option value="Vila">Vila</option>
                                 <option value="Flat">Flat</option>
                                 <option value=""></option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="form-group row mt-4 ">
-                        <label class="col-sm-2 col-form-label">House Image</label>
-                        <div class="col-sm-9">
-                            <input type="file" name="image[]" class="form-control" multiple required>
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('housetype')
                                     *{{ $message }}
                                 @enderror
                             </div>
@@ -95,7 +89,7 @@
                         <label for="" class="col-sm-2 col-form-label">Facilities</label>
                         <div class="col-sm-9">
                             <input type="text" name="facilities" class="form-control">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' facilities')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('facilities')
                                     *{{ $message }}
                                 @enderror
                             </div>
@@ -105,7 +99,7 @@
                         <label for="" class="col-sm-2 col-form-label">No of Guest</label>
                         <div class="col-sm-9">
                             <input type="text" name="guest" class="form-control">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' guest')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('guest')
                                     *{{ $message }}
                                 @enderror
                             </div>
@@ -115,7 +109,17 @@
                         <label for="" class="col-sm-2 col-form-label">Price</label>
                         <div class="col-sm-9">
                             <input type="text" name="price" class="form-control">
-                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error(' price')
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('price')
+                                    *{{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4 ">
+                        <label class="col-sm-2 col-form-label">House Image</label>
+                        <div class="col-sm-9">
+                            <input type="file" name="image[]" class="form-control" multiple>
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('image')
                                     *{{ $message }}
                                 @enderror
                             </div>

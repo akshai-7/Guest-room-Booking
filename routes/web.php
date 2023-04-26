@@ -25,12 +25,8 @@ Route::view('/', 'login');
 Route::view('/register', 'register');
 Route::view('/house', 'house');
 Route::view('/listing', 'listing');
-Route::view('/booking', 'booking');
-
 
 Route::post('/create', [RegisterController::class, 'create']);
-Route::post('/index', [LoginController::class, 'login']);
-Route::view('/index', [LoginController::class, 'index']);
 //house owner
 Route::post('createhouse', [AdminController::class, 'createhouse']);
 Route::get('createhouse', [AdminController::class, 'housedetails']);
@@ -39,3 +35,4 @@ Route::get('/delete/{id}', [AdminController::class, 'delete']);
 //customer
 Route::get('listing', [UserController::class, 'houselist']);
 Route::post('booking', [UserController::class, 'booking']);
+Route::get('/bookinglist', [UserController::class, 'bookinglist']);

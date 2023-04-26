@@ -40,11 +40,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function  index()
-    {
-        return view('/index');
-    }
     public function login(Request $request)
     {
         $user = User::where(['email' => $request->email])->first();

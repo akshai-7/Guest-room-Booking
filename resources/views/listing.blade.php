@@ -63,39 +63,49 @@
                 @endforeach
             </div>
         </div>
-        <div id="popup">
-            <div class="modal fade " id="myModal" role="dialog">
-                <div class="booking">
-                    <div>
+        <div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div id="popup">
+                    <div class="booking">
                         <form action="/booking" method="POST">
                             @csrf
                             <input type="hidden" name="id" id="id">
                             <div class="elem-group">
                                 <label for="name">Your Name</label>
-                                <input type="text" name="name" class="form-control" required>
+                                <input type="text" name="name" class="form-control">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                             <div class="elem-group">
                                 <label for="email">Your E-mail</label>
-                                <input type="email" id="email" class="form-control" name="email" required>
+                                <input type="email" id="email" class="form-control" name="email">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                             <div class="elem-group">
                                 <label for="phone">Your Phone</label>
-                                <input type="tel" id="phone" class="form-control" name="phone" required>
+                                <input type="tel" id="phone" class="form-control" name="phone">
+                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('phone')
+                                        *{{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                             <hr>
                             <div class="form-group " style="display: flex">
                                 <label class="col-sm-2 mt-2">Adults</label>
-                                <input type="number" name="adult" class="form-control" name="" placeholder="1"
-                                    required>
+                                <input type="number" name="adult" class="form-control" name="" placeholder="0">
                                 <label class="col-sm-2 mt-2">Children</label>
-                                <input type="number" name="child" class="form-control" name="" placeholder="1"
-                                    required>
+                                <input type="number" name="child" class="form-control" name="" placeholder="0">
                             </div>
                             <div class="form-group " style="display: flex">
                                 <label class="col-sm-2 mt-2">Check-in </label>
-                                <input type="date" class="form-control" name="check_in" required>
+                                <input type="date" class="form-control" name="check_in">
                                 <label class="col-sm-2 mt-2">Check-out</label>
-                                <input type="date" class="form-control" name="check_out" required>
+                                <input type="date" class="form-control" name="check_out">
                             </div>
                             <hr>
                             <button type="submit">Book The Rooms</button>

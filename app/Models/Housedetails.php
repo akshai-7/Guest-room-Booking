@@ -12,4 +12,9 @@ class Housedetails extends Model
     protected $fillable = [
         'facilities',
     ];
+
+    public function book()
+    {
+        return $this->hasMany(Book::class, 'booking_id');
+    }
 }

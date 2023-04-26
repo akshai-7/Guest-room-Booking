@@ -14,16 +14,14 @@ class UserController extends Controller
         if ($request->location == null && $request->check_in == null) {
             $status = 'Null';
             $users = Housedetails::where('status', $status)->get();
-            return view('listing', ['users' => $users]);
         } elseif ($request->location != null && $request->check_in != null) {
             $status = 'Null';
             $users = Housedetails::where('status', $status)->where('city', $request->location)->get();
-            return view('listing', ['users' => $users]);
         }
+        return view('listing', ['users' => $users]);
     }
     public function booking(Request $request)
     {
-        // dd($request);
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -51,5 +49,10 @@ class UserController extends Controller
         $admin->save();
 
         return redirect('/listing');
+    }
+    public function bookinglist()
+    {
+        $books = Book::with('housedetails')->get();
+        return view('bookinglist', ['books' => $books]);
     }
 }

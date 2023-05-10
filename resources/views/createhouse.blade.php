@@ -1,82 +1,54 @@
 @extends('layouts.user')
 @section('content')
     <div>
-        @if (auth()->check())
-            <p> logic if user is authenticated</p>
-        @else
-            <p> logic otherwise</p>
-        @endif
-        <div style="display:flex">
-            <h3 class="mt-4">House Details</h3>
-            <a style="margin-left:1000px;" href="/house"><input type="submit" value="Add-House"
-                    class="btn btn-secondary btn-sm mt-4"></a>
+        <div class="list-container1">
+            <div style="display:flex">
+                <h3 class="mt-4">House Details</h3>
+                <a style="margin-left:700px;" href="/house"><input type="submit" value="Add-House"
+                        class="btn btn-secondary btn-sm mt-4"></a>
+            </div>
+            @foreach ($houses as $house)
+                <div class="house">
+                    <div class="house-img">
+                        @if ($house->image != null)
+                            <a>
+                                <img src="{{ url('images/' . explode(',', $house->image)[0]) }}">
+                            </a>
+                        @endif
+                    </div>
+                    <div class="house-info mt-5">
+                        <h4>{{ $house->housename }},{{ $house->address }}-{{ $house->city }}</h4>
+                        <p>House Type-{{ $house->housetype }} </p>
+                        <p>{{ $house->facilities }}</p>
+                        <p>Contact.no - {{ $house->mobile }}</p>
+                        <a onclick="check({{ $house }})"><i class="fa-solid fa-edit btn btn-success btn-sm"></i></a>
+                        <a href="/delete/{{ $house->id }}" data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
+                        <a>
+                            @if ($house->status == 'Booked')
+                                <button type="button" class="btn btn-success btn-sm">Booked</button>
+                            @else
+                                <button type="button" class="btn btn-primary btn-sm">Available
+                                </button>
+                            @endif
+                        </a>
+                        <div class="house-price">
+                            <h5>{{ $house->guest }} Guest</h5>
+                            <h4 style="color:#ff5361"><i class="fa-solid fa-indian-rupee-sign"> {{ $house->price }}</i>
+                                <span>/ day</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-        <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width:1300px;">
-            <thead>
-                <th style="text-align:center;">
-                    S.No</th>
-                <th style="text-align:center;">House Owner Name</th>
-                <th style="text-align:center;">Address</th>
-                <th style="text-align:center;">Date</th>
-                <th style="text-align:center;">Mobile.no</th>
-                <th style="text-align:center;">House Name</th>
-                <th style="text-align:center;">House Type</th>
-                <th style="text-align:center;" class="col-md-2">Facilities</th>
-                <th style="text-align:center;">No of Guests</th>
-                <th style="text-align:center;">Price</th>
-                <th style="text-align:center;">House Image</th>
-                <th style="text-align:center;" class="col-md-1">Action</th>
-            </thead>
-            <tbody>
-                @foreach ($houses as $house)
-                    <tr class="table_row">
-                        <td style="text-align:center;" class="table_data">{{ $loop->iteration }}</td>
-                        <td style="text-align:center;" class="table_data">{{ $house->name }}
-                        </td>
-                        <td style="text-align:center;" class="table_data">{{ $house->user_id }}
-                        </td>
-                        <td style="text-align:center;" class="table_data col-md-2">{{ $house->address }},
-                            {{ $house->city }}
-                        </td>
-                        <td style="text-align:center;" class="table_data">{{ $house->date }}</td>
-                        <td style="text-align:center;" class="table_data">{{ $house->mobile }}</td>
-                        <td style="text-align:center;" class="table_data">
-                            {{ $house->housename }}</td>
-                        <td style="text-align:center;" class="table_data">
-                            {{ $house->housetype }}</td>
-                        <td style="text-align:center;" class="table_data">
-                            {{ $house->facilities }}</td>
-                        <td style="text-align:center;" class="table_data">
-                            {{ $house->guest }}</td>
-                        <td style="text-align:center;" class="table_data">
-                            {{ $house->price }}</td>
-                        <td style="text-align:center;" class="table_data">
-                            @if ($house->image != null)
-                                <a href="#">
-                                    <img src="{{ url('images/' . explode(',', $house->image)[0]) }}"
-                                        class="rounded-0 border border-secondary" width="50px" height="50px">
-                                </a>
-                            @endif
-                            @if ($house->image == null)
-                                <p style="text-align:center;">--</p>
-                            @endif
-                        </td>
-                        <td style="text-align:center;" class="table_data">
-                            <a onclick="check({{ $house }})"><i class="fa-solid fa-edit btn btn-success"></i></a>
-                            <a href="/delete/{{ $house->id }}" data-toggle="tooltip" data-placement="top"
-                                title="Delete"><i class="fa-solid fa-trash btn btn-danger"></i></a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
     <div id="popup">
         <div class="adminform1">
             <form action="/updatedetails/{id}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <h4 class="" style="color:#ff5361"><i class="fa-solid fa-house"></i> House Detailes</h4>
+                    <h4 class="" style="color:#ff5361"><i class="fa-solid fa-house"></i>House Details</h4>
                 </div>
                 <div class="report1">
                     <div class="report">
@@ -118,14 +90,15 @@
                                 <input type="text" name="mobile" class="form-control" id="mobile">
                             </div>
                         </div>
-                    </div>
-                    <div class="subreport">
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-3  col-form-label">House Name</label>
                             <div class="col-sm-8">
                                 <input type="text" name="housename" class="form-control" id="housename">
                             </div>
                         </div>
+                    </div>
+                    <div class="subreport">
+
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-3  col-form-label">House Type</label>
                             <div class="col-sm-8">
@@ -179,6 +152,5 @@
 
         </div>
         </form>
-    </div>
     </div>
 @endsection

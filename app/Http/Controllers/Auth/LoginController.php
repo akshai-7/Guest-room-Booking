@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -37,22 +38,18 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+
     public function login(Request $request)
     {
-        $user = User::where(['email' => $request->email])->first();
-        if (!$user && !Hash::check($request->password, $user->password)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if (Auth::user()->role == 'admin') {
+                return redirect('/createhouse');
+            }
+            if (Auth::user()->role == 'user') {
+                return redirect('/listing');
+            }
+        } else {
             return redirect('/');
         }
-        if ($user->role == 'admin') {
-            return redirect('/createhouse');
-        }
-        // if ($user->role == 'user') {
-        //     return redirect('/listing');
-        // }
-        return redirect('/');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class=" main card">
+    <div class=" main1 card">
         <div class="card-header">{{ __('Register') }}</div>
         <div class="">
             <form method="POST" action="create">

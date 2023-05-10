@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Housedetails;
@@ -53,7 +54,7 @@ class AdminController extends Controller
     }
     public function housedetails()
     {
-        $houses = Housedetails::get();
+        $houses = Housedetails::where('user_id', Auth::id())->get();
         return  view('/createhouse', ['houses' => $houses]);
     }
 
@@ -103,7 +104,7 @@ class AdminController extends Controller
     }
     public function delete($id)
     {
-        Housedetails::find(Auth::id())->delete();
+        Housedetails::find($id)->delete();
         return redirect('/createhouse');
     }
 }

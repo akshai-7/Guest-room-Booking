@@ -22,9 +22,10 @@ Route::view('/', 'login');
 Route::view('/register', 'register');
 Route::view('/house', 'house');
 Route::view('/listing', 'listing');
+Route::view('/createhouse', 'createhouse');
 Route::post('/create', [RegisterController::class, 'create']);
 //house owner
-Route::post('createhouse', [AdminController::class, 'createhouse']);
+Route::post('/createhouse', [AdminController::class, 'createhouse']);
 Route::get('createhouse', [AdminController::class, 'housedetails']);
 Route::post('/updatedetails/{id}', [AdminController::class, 'updatedetails']);
 Route::get('/delete/{id}', [AdminController::class, 'delete']);
@@ -32,3 +33,11 @@ Route::get('/delete/{id}', [AdminController::class, 'delete']);
 Route::get('/listing', [UserController::class, 'houselist']);
 Route::post('booking', [UserController::class, 'booking']);
 Route::get('/bookinglist', [UserController::class, 'bookinglist']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

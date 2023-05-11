@@ -41,10 +41,12 @@
                     </div>
                 </div>
             @endforeach
-            @if (count($houses) < 1)
-                <p>Data not found</p>
-            @endif
         </div>
+        @if (count($houses) < 1)
+            <div id="dataNotFound">
+                <p>Data not found</p>
+            </div>
+        @endif
     </div>
     <div id="popup">
         <div class="adminform1">

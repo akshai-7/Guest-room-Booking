@@ -2,9 +2,9 @@
 @section('content')
     <div>
         <div style="display:flex">
-            <h3 class="mt-4">House Booking Details</h3>
+            <h3 class="mt-4" id="heading">House Booking Details</h3>
         </div>
-        <table class="table table-bordered mt-3" style="border: 1px solid lightgrey;width:1300px;">
+        <table class="table table-bordered mt-3" id="table">
             <thead>
                 <th style="text-align:center;">S.No</th>
                 {{-- <th style="text-align:center;">Booking Id</th> --}}
@@ -41,5 +41,10 @@
                 @endforeach
             </tbody>
         </table>
+        @if (count($books) < 1)
+            <div id="dataNotFound">
+                <p>Data not found</p>
+            </div>
+        @endif
     </div>
 @endsection

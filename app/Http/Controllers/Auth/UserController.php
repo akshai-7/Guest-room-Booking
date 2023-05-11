@@ -64,4 +64,10 @@ class UserController extends Controller
         $books = Book::where('user_id', Auth::id())->with('house')->get();
         return view('/bookinglist', ['books' => $books]);
     }
+
+    public function list($id)
+    {
+        $lists = Housedetails::where('id', $id)->get();
+        return view('/details', ['lists' => $lists]);
+    }
 }

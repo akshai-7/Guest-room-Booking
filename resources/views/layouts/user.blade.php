@@ -23,10 +23,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 
-<body>
+<body class="body">
     <header id="navBar" class="navbar-white">
         <div class="nav">
-            <a href="#">
+            <a>
                 <img src="images/logo-red.png" class="logo">
             </a>
             <a><img src="{{ url('images/host.png') }}" id="img-logo" onclick="show('popup1')"></a>
@@ -39,18 +39,18 @@
                 <p class="button1"> {{ ucfirst(strtolower(Auth::user()->name)) }}</p>
             </li>
             <li class="mt-4">
-                <i class='bx bxl-gmail'></i><a class="button">{{ Auth::user()->email }}</a>
+                <i class='bx bxl-gmail icon'></i><a class="button">{{ Auth::user()->email }}</a>
             </li>
             <li class="mt-4">
-                <i class='bx bx-building-house'></i><a href="/createhouse" class="button ">Properties<i
+                <i class='bx bx-building-house icon'></i><a href="/createhouse" class="button ">Properties<i
                         class="button__icon fas fa-chevron-right  button"></i></a>
             </li>
             <li class="mt-4">
-                <i class='bx bxs-bookmarks'></i><a href="/bookinglist" class="button mt-4">Booking <i
+                <i class='bx bxs-bookmarks icon'></i><a href="/bookinglist" class="button mt-4">Booking <i
                         class="button__icon fas fa-chevron-right  button"></i></a>
             </li>
             <li class="mt-4">
-                <i class="bx bx-log-out"></i><a href="/" class="button">Log Out<i
+                <i class="bx bx-log-out icon"></i><a href="/" class="button">Log Out<i
                         class="button__icon fas fa-chevron-right  button"></i></a>
             </li>
             <hr style="border-top:1px solid rgb(131, 126, 126);">

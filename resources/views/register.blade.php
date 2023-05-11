@@ -3,7 +3,7 @@
     <div class=" main1 card">
         <div class="card-header">{{ __('Register') }}</div>
         <div class="">
-            <form method="POST" action="create">
+            <form method="POST" action="/create">
                 @csrf
                 <div class="row mb-3 mt-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>

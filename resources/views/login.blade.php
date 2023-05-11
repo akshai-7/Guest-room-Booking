@@ -34,7 +34,7 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Login') }}
                         </button>
-                        <a href="register"><input type="button" value="Register" class="btn btn-primary"></a>
+                        <a href="/register"><input type="button" value="Register" class="btn btn-primary"></a>
                     </div>
                 </div>
             </form>

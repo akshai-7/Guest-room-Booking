@@ -38,7 +38,7 @@
                     <div class="house">
                         <div class="house-img">
                             @if ($user->image != null)
-                                <a onclick="check1({{ $user }})" data-toggle="modal" data-target="#myModal2">
+                                <a href="/list/{{ $user->id }}">
                                     <img src="{{ url('images/' . explode(',', $user->image)[0]) }}">
                                 </a>
                             @endif
@@ -113,14 +113,17 @@
 
             </div>
         </div>
-        <div class="modal fade" id="myModal2">
+        {{-- <div class="modal fade" id="myModal2">
             <div id="popup3">
                 <div class="booking">
+                    @foreach ($lists as $list)
+                        @dd($list);
+                    @endforeach
                     <input type="text" id="id1" class="form-control">
                     <img id="image1" class="rounded-0 border border-secondary" width="50px" height="50px">
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </div>
 @endsection

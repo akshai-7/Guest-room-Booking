@@ -9,8 +9,10 @@ class Book extends Model
 {
     use HasFactory;
 
-    public function housedetails()
+
+
+    public function house()
     {
-        return $this->belongsTo(Housedetails::class, 'booking_id');
+        return $this->hasMany(Housedetails::class, 'id');
     }
 }

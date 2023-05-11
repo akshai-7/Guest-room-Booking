@@ -43,7 +43,7 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             if (Auth::user()->role == 'admin') {
-                return redirect('/createhouse');
+                return redirect('/listing');
             }
             if (Auth::user()->role == 'user') {
                 return redirect('/listing');

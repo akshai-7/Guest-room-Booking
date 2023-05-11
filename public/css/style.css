@@ -19,25 +19,11 @@ body {
     background-size: cover;
     background-position: center;
 }
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 7%;
-}
 .logo {
     width: 140px;
     cursor: pointer;
 }
-.nav-links li {
-    list-style: none;
-    display: inline-block;
-    margin: 10px 10px;
-}
-.nav-links li a {
-    text-decoration: none;
-    color: #fff;
-}
+
 .register-btn {
     padding: 8px 20px;
     border-radius: 20px;
@@ -46,13 +32,6 @@ nav {
     font-size: 14px;
 }
 
-.header h1 {
-    font-size: 4vw;
-    font-weight: 500;
-    color: lightblue;
-    text-align: center;
-    padding-top: 22%;
-}
 .search-bar {
     width: 70%;
     margin: 30px auto;
@@ -90,20 +69,12 @@ nav {
 /* ----listing page---- */
 .navbar-white {
     background: white;
+    height: 60px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
-.navbar-white .nav-links li a {
-    color: #000;
-}
-.navbar-white .register-btn {
-    background: #ff5361;
-    color: white;
-}
-nav.navbar-white .fa-bars {
-    color: black;
-}
-.navbar-white .active::after {
-    background: #ff5361;
+.nav {
+    display: flex;
+    margin-left: 100px;
 }
 .list-container {
     margin-top: 50px;
@@ -214,6 +185,18 @@ nav.navbar-white .fa-bars {
     top: 0;
     left: 0;
 }
+#popup1 {
+    cursor: pointer;
+    width: 15%;
+    height: 40%;
+    background: white;
+    position: absolute;
+    display: none;
+    top: 75px;
+    left: 80%;
+    border: 1px solid #f88a8e;
+    border-radius: 6px;
+}
 #add {
     border-radius: 3px;
     color: #fff;
@@ -233,4 +216,44 @@ nav.navbar-white .fa-bars {
 }
 a {
     cursor: pointer;
+}
+
+#img-logo {
+    border-radius: 50px;
+    width: 50px;
+    margin-left: 1100px;
+}
+#img-logo1 {
+    border-radius: 50px;
+    width: 50px;
+}
+li {
+    text-decoration: none;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.button {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.button1 {
+    color: #ff252b;
+    margin-left: 20px;
+    padding-top: 10px;
+    font-size: 17px;
+}
+.button2 {
+    color: #ff252b;
+    margin-left: 65px;
+    font-size: 16px;
+}
+.name {
+    border-bottom: 1px solid rgb(131, 126, 126);
+    display: flex;
+    margin-top: 5px;
+    padding-bottom: 7px;
 }

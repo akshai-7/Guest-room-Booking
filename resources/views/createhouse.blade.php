@@ -41,6 +41,9 @@
                     </div>
                 </div>
             @endforeach
+            @if (count($houses) < 1)
+                <p>Data not found</p>
+            @endif
         </div>
     </div>
     <div id="popup">

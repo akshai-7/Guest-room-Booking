@@ -20,40 +20,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    `
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 
 <body>
-    <nav id="navBar" class="navbar-white">
-        <a href="#">
-            <img src="images/logo-red.png" class="logo">
-        </a>
-        {{-- <a href="/" class="register-btn">Log Out</a> --}}
-        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Open Modal</button> --}}
-        <button type="button" id="show-button">Show Content</button>
-        <button id="popup-button">Open Popup</button>
-
-
-        <div id="content" style="display:none;">
-            <p>Content that will be shown when the button is clicked.</p>
+    <header id="navBar" class="navbar-white">
+        <div class="nav">
+            <a href="#">
+                <img src="images/logo-red.png" class="logo">
+            </a>
+            <a><img src="{{ url('images/host.png') }}" id="img-logo" onclick="show('popup1')"></a>
         </div>
-    </nav>
+    </header>
+    <div id="popup1">
+        <ul class="mt-3">
+            <li class="name">
+                <a><img src="{{ url('images/host.png') }}" id="img-logo1"></a>
+                <p class="button1"> {{ ucfirst(strtolower(Auth::user()->name)) }}</p>
+            </li>
+            <li class="mt-4">
+                <i class='bx bxl-gmail'></i><a class="button"> {{ Auth::user()->email }}</a>
+            </li>
+            <li class="mt-4">
+                <i class='bx bx-building-house'></i><a href="/createhouse" class="button ">Properties<i
+                        class="button__icon fas fa-chevron-right  button"></i></a>
+            </li>
+            <li class="mt-4">
+                <i class='bx bxs-bookmarks'></i><a href="/bookinglist" class="button mt-4">Booking <i
+                        class="button__icon fas fa-chevron-right  button"></i></a>
+            </li>
+            <li class="mt-4">
+                <i class="bx bx-log-out"></i><a href="/" class="button">Log Out<i
+                        class="button__icon fas fa-chevron-right  button"></i></a>
+            </li>
+            <hr style="border-top:1px solid rgb(131, 126, 126);">
+            <li>
+                <p onclick="hide('popup1')" class="button2">close</p>
+            </li>
+        </ul>
+    </div>
     @yield('content')
-    <script>
-        $(document).ready(function() {
-            $("#show-button").click(function() {
-                $("#content").show();
-            });
-        });
-
-
-        $(document).ready(function() {
-            $("#popup-button").click(function() {
-                window.open("popup.html", "Popup", "width=500,height=500");
-            });
-        });
-    </script>
 </body>
-
 
 </html>

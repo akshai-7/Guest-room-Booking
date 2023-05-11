@@ -18,5 +18,13 @@ function sam(val) {
     document.getElementById('id').value = val['id']
     document.getElementById('user_id').value = val['user_id']
 }
-
+$ = function(id) {
+        return document.getElementById(id);
+    }
+    var show = function(id) {
+        $(id).style.display = 'flex';
+    }
+    var hide = function(id) {
+        $(id).style.display = 'none';
+    }
 

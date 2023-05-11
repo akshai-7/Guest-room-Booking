@@ -13,8 +13,9 @@ class Housedetails extends Model
         'facilities',
     ];
 
+
     public function book()
     {
-        return $this->hasMany(Book::class, 'booking_id');
+        return $this->belongsTo(Book::class, 'house_id');
     }
 }

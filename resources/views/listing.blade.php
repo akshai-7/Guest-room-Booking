@@ -29,12 +29,12 @@
                         @endif
                     </div>
                     <button type="submit" class="btn" id="btn"><i class="fa fa-search"></i></button>
-                    <a href="/listing" id="btn1"><i class="fa-solid fa-arrow-rotate-right btn"></i></a>
+                    <a href="/listing" class="btn" id="btn"><i class='bx bx-refresh btn-lg'></i></a>
                 </form>
             </div>
             <div class="left-col mt-4">
                 <h2>Recommended Places</h2>
-                <p></p>
+
                 @foreach ($users as $user)
                     <div class="house">
                         <div class="house-img">
@@ -64,6 +64,7 @@
                 @endforeach
             </div>
         </div>
+
         <div>
             <div class="modal fade" id="myModal" role="dialog">
                 <div id="popup">
@@ -117,22 +118,6 @@
                 </div>
             </div>
 
-        </div>
-        <div id="myModal1" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
         </div>
 
 

@@ -39,7 +39,7 @@
                 <p class="button1"> {{ ucfirst(strtolower(Auth::user()->name)) }}</p>
             </li>
             <li class="mt-4">
-                <i class='bx bxl-gmail'></i><a class="button"> {{ Auth::user()->email }}</a>
+                <i class='bx bxl-gmail'></i><a class="button">{{ Auth::user()->email }}</a>
             </li>
             <li class="mt-4">
                 <i class='bx bx-building-house'></i><a href="/createhouse" class="button ">Properties<i

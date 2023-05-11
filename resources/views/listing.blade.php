@@ -34,12 +34,11 @@
             </div>
             <div class="left-col mt-4">
                 <h2>Recommended Places</h2>
-
                 @foreach ($users as $user)
                     <div class="house">
                         <div class="house-img">
                             @if ($user->image != null)
-                                <a>
+                                <a onclick="check1({{ $user }})" data-toggle="modal" data-target="#myModal2">
                                     <img src="{{ url('images/' . explode(',', $user->image)[0]) }}">
                                 </a>
                             @endif
@@ -49,9 +48,8 @@
                             <p>House Type-{{ $user->housetype }} </p>
                             <p>{{ $user->facilities }}</p>
                             <p>Contact.no - {{ $user->mobile }}</p>
-                            <a><button type="button" data-toggle="modal" onclick="sam({{ $user }})"
-                                    data-target="#myModal" class="btn btn-success btn-sm"
-                                    onclick="sam({{ $user }})">Booking
+                            <a><button type="button" data-toggle="modal" data-target="#myModal"
+                                    class="btn btn-success btn-sm" onclick="sam({{ $user }})">Booking
                                 </button></a>
                             <div class="house-price">
                                 <h5>{{ $user->guest }} Guest</h5>
@@ -64,62 +62,65 @@
                 @endforeach
             </div>
         </div>
-
-        <div>
-            <div class="modal fade" id="myModal" role="dialog">
-                <div id="popup">
-                    <div class="booking">
-                        <form action="/booking" method="POST">
-                            @csrf
-                            <input type="hidden" name="id" id="id">
-                            <div class="elem-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" name="name" class="form-control">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
+        <div class="modal fade" id="myModal">
+            <div id="popup">
+                <div class="booking">
+                    <form action="/booking" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" id="id">
+                        <div class="elem-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" class="form-control">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
+                                    *{{ $message }}
+                                @enderror
                             </div>
-                            <div class="elem-group">
-                                <label for="email">Your E-mail</label>
-                                <input type="email" id="email" class="form-control" name="email">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
+                        </div>
+                        <div class="elem-group">
+                            <label for="email">Your E-mail</label>
+                            <input type="email" id="email" class="form-control" name="email">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
+                                    *{{ $message }}
+                                @enderror
                             </div>
-                            <div class="elem-group">
-                                <label for="phone">Your Phone</label>
-                                <input type="tel" id="phone" class="form-control" name="phone">
-                                <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('phone')
-                                        *{{ $message }}
-                                    @enderror
-                                </div>
+                        </div>
+                        <div class="elem-group">
+                            <label for="phone">Your Phone</label>
+                            <input type="tel" id="phone" class="form-control" name="phone">
+                            <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('phone')
+                                    *{{ $message }}
+                                @enderror
                             </div>
-                            <hr>
-                            <div class="form-group " style="display: flex">
-                                <label class="col-sm-2 mt-2">Adults</label>
-                                <input type="number" name="adult" class="form-control" name="" placeholder="0">
-                                <label class="col-sm-2 mt-2">Children</label>
-                                <input type="number" name="child" class="form-control" name="" placeholder="0">
-                            </div>
-                            <div class="form-group " style="display: flex">
-                                <label class="col-sm-2 mt-2">Check-in </label>
-                                <input type="date" class="form-control" name="check_in">
-                                <label class="col-sm-2 mt-2">Check-out</label>
-                                <input type="date" class="form-control" name="check_out">
-                            </div>
-                            <hr>
-                            <button type="submit">Book The Rooms</button>
-                        </form>
-
-                    </div>
+                        </div>
+                        <hr>
+                        <div class="form-group " style="display: flex">
+                            <label class="col-sm-2 mt-2">Adults</label>
+                            <input type="number" name="adult" class="form-control" name="" placeholder="0">
+                            <label class="col-sm-2 mt-2">Children</label>
+                            <input type="number" name="child" class="form-control" name="" placeholder="0">
+                        </div>
+                        <div class="form-group " style="display: flex">
+                            <label class="col-sm-2 mt-2">Check-in </label>
+                            <input type="date" class="form-control" name="check_in">
+                            <label class="col-sm-2 mt-2">Check-out</label>
+                            <input type="date" class="form-control" name="check_out">
+                        </div>
+                        <hr>
+                        <button type="submit">Book The Rooms</button>
+                    </form>
 
                 </div>
+
             </div>
-
         </div>
-
+        <div class="modal fade" id="myModal2">
+            <div id="popup3">
+                <div class="booking">
+                    <input type="text" id="id1" class="form-control">
+                    <img id="image1" class="rounded-0 border border-secondary" width="50px" height="50px">
+                </div>
+            </div>
+        </div>
 
     </div>
 @endsection

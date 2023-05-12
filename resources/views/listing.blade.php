@@ -2,7 +2,7 @@
 @section('content')
     <div>
         <div class="list-container">
-            <div class="search-bar">
+            <div class="search-bar ">
                 <form method="GET" action="/listing" autocomplete="off">
                     <div class="location-input">
                         <label>Location</label>
@@ -32,7 +32,7 @@
                     <a href="/listing" class="btn" id="btn"><i class='bx bx-refresh btn-lg'></i></a>
                 </form>
             </div>
-            <div class="left-col mt-4">
+            <div class="left-col">
                 <h2>Recommended Places</h2>
                 @foreach ($users as $user)
                     <div class="house">
@@ -43,17 +43,25 @@
                                 </a>
                             @endif
                         </div>
-                        <div class="house-info mt-5">
-                            <h4>{{ $user->housename }},{{ $user->address }}-{{ $user->city }}</h4>
+                        <div class="house-info">
+                            <h4>{{ $user->housename }}-{{ $user->address }},{{ $user->city }}</h4>
                             <p>House Type-{{ $user->housetype }} </p>
                             <p>{{ $user->facilities }}</p>
                             <p>Contact.no - {{ $user->mobile }}</p>
-                            <a><button type="button" data-toggle="modal" data-target="#myModal"
-                                    class="btn btn-success btn-sm" onclick="sam({{ $user }})">Booking
-                                </button></a>
+
+                            @if ($user->check_out == date('Y-m-d'))
+                                <button type="button" class="btn btn-secondary btn-sm"
+                                    onclick="sam({{ $user }})">Not Available
+                                </button>
+                            @else
+                                <a><button type="button" data-toggle="modal" data-target="#myModal"
+                                        class="btn btn-primary btn-sm" onclick="sam({{ $user }})">Booking
+                                    </button></a>
+                            @endif
                             <div class="house-price">
                                 <h5>{{ $user->guest }} Guest</h5>
-                                <h4 style="color:#ff5361"><i class="fa-solid fa-indian-rupee-sign"> {{ $user->price }}</i>
+                                <h4 style="color:#ff5361"><i class="fa-solid fa-indian-rupee-sign">
+                                        {{ $user->price }}</i>
                                     <span>/ day</span>
                                 </h4>
                             </div>
@@ -68,15 +76,15 @@
                     <form action="/booking" method="POST">
                         @csrf
                         <input type="hidden" name="id" id="id">
-                        <div class="elem-group">
+                        <div class="elem-group mt-3">
                             <label for="name">Your Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" required>
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('name')
                                     *{{ $message }}
                                 @enderror
                             </div>
                         </div>
-                        <div class="elem-group">
+                        <div class="elem-group mt-3">
                             <label for="email">Your E-mail</label>
                             <input type="email" id="email" class="form-control" name="email">
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('email')
@@ -84,46 +92,40 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="elem-group">
+                        <div class="elem-group mt-3">
                             <label for="phone">Your Phone</label>
-                            <input type="tel" id="phone" class="form-control" name="phone">
+                            <input type="tel" id="phone" class="form-control" name="phone" required>
                             <div style="color:rgb(216, 31, 31);font-size:14px;"> @error('phone')
                                     *{{ $message }}
                                 @enderror
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " style="display: flex">
+                        <div class="form-group mt-3 " style="display: flex">
                             <label class="col-sm-2 mt-2">Adults</label>
-                            <input type="number" name="adult" class="form-control" name="" placeholder="0">
+                            <input type="number" name="adult" class="form-control" name="" placeholder="0"
+                                required>
                             <label class="col-sm-2 mt-2">Children</label>
-                            <input type="number" name="child" class="form-control" name="" placeholder="0">
+                            <input type="number" name="child" class="form-control" name="" placeholder="0"
+                                required>
                         </div>
-                        <div class="form-group " style="display: flex">
+                        <div class="form-group mt-3" style="display: flex">
                             <label class="col-sm-2 mt-2">Check-in </label>
-                            <input type="date" class="form-control" name="check_in">
+                            <input type="date" class="form-control" name="check_in" required>
                             <label class="col-sm-2 mt-2">Check-out</label>
-                            <input type="date" class="form-control" name="check_out">
+                            <input type="date" class="form-control" name="check_out" required>
                         </div>
                         <hr>
-                        <button type="submit">Book The Rooms</button>
+
+                        <a href="/listing"><button type="button" class="btn btn-secondary btn-sm">Back
+                            </button></a>
+                        <button type="submit" class="btn btn-primary btn-sm">Book
+                        </button>
                     </form>
 
                 </div>
 
             </div>
         </div>
-        {{-- <div class="modal fade" id="myModal2">
-            <div id="popup3">
-                <div class="booking">
-                    @foreach ($lists as $list)
-                        @dd($list);
-                    @endforeach
-                    <input type="text" id="id1" class="form-control">
-                    <img id="image1" class="rounded-0 border border-secondary" width="50px" height="50px">
-                </div>
-            </div>
-        </div> --}}
-
     </div>
 @endsection

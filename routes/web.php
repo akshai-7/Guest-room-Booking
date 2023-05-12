@@ -20,7 +20,7 @@ use App\Http\Controllers\Auth\UserController;
 Auth::routes();
 Route::view('/', 'login');
 Route::view('/register', 'register');
-// Route::view('/house', 'house');
+Route::view('/house', 'house');
 // Route::view('/listing', 'listing');
 // Route::view('/details', 'details');
 // Route::view('/createhouse', 'createhouse');

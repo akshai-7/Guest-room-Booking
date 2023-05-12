@@ -26,8 +26,8 @@
 <body class="body">
     <header id="navBar" class="navbar-white">
         <div class="nav">
-            <a>
-                <img src="images/logo-red.png" class="logo">
+            <a href="#">
+                <img src="{{ url('images/logo-red.png') }}" class="logo">
             </a>
             <a><img src="{{ url('images/host.png') }}" id="img-logo" onclick="show('popup1')"></a>
         </div>

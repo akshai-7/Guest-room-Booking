@@ -3,7 +3,7 @@
     <div>
         <div class="list-container1">
             <div style="display:flex">
-                <h3 class="mt-4">House Details</h3>
+                <h2 class="mt-4">House Details</h2>
                 <a style="margin-left:700px;" href="/house"><input type="submit" value="Add-House"
                         class="btn btn-secondary btn-sm mt-4"></a>
             </div>
@@ -17,7 +17,7 @@
                         @endif
                     </div>
                     <div class="house-info mt-5">
-                        <h4>{{ $house->housename }},{{ $house->address }}-{{ $house->city }}</h4>
+                        <h4>{{ $house->housename }}-{{ $house->address }},{{ $house->city }}</h4>
                         <p>House Type-{{ $house->housetype }} </p>
                         <p>{{ $house->facilities }}</p>
                         <p>Contact.no - {{ $house->mobile }}</p>
@@ -26,9 +26,9 @@
                                 class="bi bi-trash-fill btn btn-danger btn-sm"></i></a>
                         <a>
                             @if ($house->status == 'Booked')
-                                <button type="button" class="btn btn-success btn-sm">Booked</button>
+                                <button type="button" class="btn btn-primary btn-sm">Booked</button>
                             @else
-                                <button type="button" class="btn btn-primary btn-sm">Available
+                                <button type="button" class="btn btn-success btn-sm">Available
                                 </button>
                             @endif
                         </a>

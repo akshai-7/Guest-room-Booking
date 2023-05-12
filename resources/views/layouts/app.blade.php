@@ -15,6 +15,12 @@
 </head>
 
 <body>
+
+    <a href="#">
+        <img src="{{ url('images/logo-red.png') }}" class="logo">
+    </a>
+
+
     <div>
         @yield('content')
     </div>

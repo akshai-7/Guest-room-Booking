@@ -1,31 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
 body {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Mulish", sans-serif;
     overflow: hidden;
-    /* background: linear-gradient(90deg, rgb(239, 239, 241), rgb(228, 228, 231)); */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url(images/banner.png);
 }
 .main {
     margin-left: 30%;
     margin-top: 13%;
-    background: rgb(242, 241, 255);
+    background: #abbcc6c1;
     width: 550px;
     height: 300px;
     border-radius: 15px;
-    box-shadow: 0px 11px 35px 2px rgba(49, 49, 49, 0.14);
+    color: black;
 }
 .main1 {
     margin-left: 30%;
     margin-top: 13%;
-    background: rgb(242, 241, 255);
+    background: #abbcc6c1;
     width: 550px;
     height: 350px;
     border-radius: 15px;
-    box-shadow: 0px 11px 35px 2px rgba(49, 49, 49, 0.14);
 }
 .login__field {
     padding: 20px 0px;
     position: relative;
+}
+.card-header {
+    text-align: center;
+}
+.input {
+    background: transparent;
+}
+.input:hover {
+    background: transparent;
+}
+.logo {
+    width: 200px;
+    cursor: pointer;
+    padding: 20px;
 }

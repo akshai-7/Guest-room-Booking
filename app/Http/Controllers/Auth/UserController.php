@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Housedetails;
 use App\Models\Book;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,11 +17,9 @@ class UserController extends Controller
     {
 
         if ($request->location == null && $request->check_in == null) {
-            $status = 'Null';
-            $users = Housedetails::where('status', $status)->get();
+            $users = Housedetails::get();
         } elseif ($request->location != null && $request->check_in != null) {
-            $status = 'Null';
-            $users = Housedetails::where('status', $status)->where('city', $request->location)->get();
+            $users = Housedetails::where('city', '=', $request->location)->get();
         }
         return view('listing', ['users' => $users]);
     }

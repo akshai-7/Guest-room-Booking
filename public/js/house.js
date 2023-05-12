@@ -29,10 +29,3 @@ function sam(val) {
     var hide = function(id) {
         $(id).style.display = 'none';
     }
-
-
-function check1(val) {
-    document.getElementById('popup3').style.display = "flex"
-    document.getElementById('id1').value= val['id']
-    document.getElementById('image1').src= "http://127.0.0.1:8001/images/"+val['image']
-}

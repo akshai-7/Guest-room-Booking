@@ -15,7 +15,6 @@ class UserController extends Controller
 
     public function houselist(Request $request)
     {
-
         if ($request->location == null && $request->check_in == null) {
             $users = Housedetails::get();
         } elseif ($request->location != null && $request->check_in != null) {

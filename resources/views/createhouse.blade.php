@@ -103,7 +103,6 @@
                         </div>
                     </div>
                     <div class="subreport">
-
                         <div class="form-group row mt-4">
                             <label for="" class="col-sm-3  col-form-label">House Type</label>
                             <div class="col-sm-8">

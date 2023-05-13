@@ -54,9 +54,9 @@
                                     onclick="sam({{ $user }})">Not Available
                                 </button>
                             @else
-                                <a><button type="button" data-toggle="modal" data-target="#myModal"
-                                        class="btn btn-primary btn-sm" onclick="sam({{ $user }})">Booking
-                                    </button></a>
+                                <button type="button" data-toggle="modal" data-target="#myModal"
+                                    class="btn btn-primary btn-sm" onclick="sam({{ $user }})">Book now
+                                </button>
                             @endif
                             <div class="house-price">
                                 <h5>{{ $user->guest }} Guest</h5>
@@ -116,15 +116,12 @@
                             <input type="date" class="form-control" name="check_out" required>
                         </div>
                         <hr>
-
                         <a href="/listing"><button type="button" class="btn btn-secondary btn-sm">Back
                             </button></a>
-                        <button type="submit" class="btn btn-primary btn-sm">Book
+                        <button type="submit" class="btn btn-primary btn-sm">Book now
                         </button>
                     </form>
-
                 </div>
-
             </div>
         </div>
     </div>

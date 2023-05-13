@@ -14,6 +14,8 @@
 .logo {
     width: 140px;
     cursor: pointer;
+    margin-left: 50px;
+    margin-top: 10px;
 }
 .register-btn {
     padding: 8px 20px;
@@ -222,7 +224,7 @@ a {
 #img-logo {
     border-radius: 40px;
     width: 40px;
-    margin-left: 1100px;
+    margin-left: 1150px;
     margin-top: 10px;
 }
 #img-logo1 {

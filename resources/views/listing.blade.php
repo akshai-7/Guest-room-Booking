@@ -116,10 +116,12 @@
                             <input type="date" class="form-control" name="check_out" required>
                         </div>
                         <hr>
-                        <a href="/listing"><button type="button" class="btn btn-secondary btn-sm">Back
+
+                        <a href="/listing" style="margin-left: 420px"><button type="button"
+                                class="btn btn-secondary btn-sm mt-4 ">Back
                             </button></a>
-                        <button type="submit" class="btn btn-primary btn-sm">Book now
-                        </button>
+                        <a><button type="submit" class="btn btn-primary btn-sm mt-4">Book now
+                            </button></a>
                     </form>
                 </div>
             </div>

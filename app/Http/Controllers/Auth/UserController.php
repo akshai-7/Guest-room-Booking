@@ -24,7 +24,7 @@ class UserController extends Controller
     }
     public function booking(Request $request)
     {
-
+        dd($request);
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -52,7 +52,7 @@ class UserController extends Controller
         $admin->check_out = $request->check_out;
         $admin->status = 'Booked';
         $admin->save();
-
+        session()->flash('message', 'Your Payment is Successfull and Your Room is Reserved');
         return redirect('/listing');
     }
     public function bookinglist()

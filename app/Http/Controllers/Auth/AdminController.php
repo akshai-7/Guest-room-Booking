@@ -13,6 +13,7 @@ class AdminController extends Controller
 {
     public function createhouse(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
             'address' => 'required',

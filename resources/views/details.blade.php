@@ -80,10 +80,12 @@
                         <input type="date" class="form-control" name="check_out">
                     </div>
                     <hr>
-                    <button type="button" class="btn btn-primary btn-sm">Book
-                    </button>
-                    <a href="/list/{{ $lists->id }}"><button type="button" class="btn btn-secondary btn-sm">Back
+                    <a href="/list/{{ $lists->id }}"><button type="button" class="btn btn-secondary btn-sm mt-5"
+                            style="margin-left: 420px">Back
                         </button></a>
+                    <button type="button" class="btn btn-primary btn-sm mt-5">Book now
+                    </button>
+
                 </form>
             </div>
         </div>
